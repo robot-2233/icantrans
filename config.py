@@ -20,13 +20,13 @@ def get_config():
     parser.add_argument('--output_path', type=str, default='trans_data')
     parser.add_argument('--row_name', type=str, default='text')
     parser.add_argument('--fr', type=str, default='en', choices=base_lan+['auto'])
-    parser.add_argument('--to', type=str, default=['zh-CN','ar',], nargs='+')
+    parser.add_argument('--to', type=str, default=['ar','bn','hi','id','iw','km','lo','ms','my','th','tl','tr','ur','vi'], nargs='+')
 
     '''Translate'''
-    parser.add_argument('--queue_num', type=int, default=16)
-    parser.add_argument('--batch_size', type=int, default=16)
+    parser.add_argument('--queue_num', type=int, default=128)
+    parser.add_argument('--batch_size', type=int, default=128)
     parser.add_argument('--crawler_speed', type=int, default=1, choices=[1, 2, 3, 4, 5])
-    parser.add_argument('--save_scale', type=float, default=0.8, help='The scale of translation required, make sure <1')
+    parser.add_argument('--save_scale', type=float, default=0.6, help='The scale of translation required, make sure <1')
 
     '''Clash_Proxy'''
     parser.add_argument('--local_host', type=str, default='127.0.0.1')

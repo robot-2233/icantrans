@@ -5,6 +5,7 @@ from transformers import logging
 from controller import ClashProxyController
 from state import *
 from tqdm import tqdm
+import shutil
 
 def set_global_proxy(w):
     os.environ['https_proxy'] = f'http://{w.local_host}:{w.pp}'
@@ -30,7 +31,7 @@ if __name__ == '__main__':
     c = ClashProxyController(args, logger)
 
     for file_name in os.listdir(args.input_path):
-        data = pd.read_csv(os.path.join(args.input_path, file_name)).head(20).reset_index()  ###
+        data = pd.read_csv(os.path.join(args.input_path, file_name)).reset_index()  ###
         all_index = set(data['index'])
         for target_lan in args.to:
 
@@ -49,12 +50,11 @@ if __name__ == '__main__':
                         for i in range(0, len(undone), args.batch_size):
                             undone_index = undone[i:min(i + args.batch_size, len(undone))]
                             undone_data = [data.iloc[i:i + 1] for i in undone_index]
-                            tmp_undone = undone_data.copy()  # useless
 
                             futures = []
                             running_num = 0
 
-                            for item in tmp_undone:
+                            for item in undone_data:
                                 future = executor.submit(process_item, args.fr, target_lan, item, args.row_name, logger)
                                 futures.append(future)
                                 running_num += 1
@@ -85,6 +85,7 @@ if __name__ == '__main__':
             trans_csv = trans_csv.sort_values(by='index')
             trans_csv = trans_csv.drop(columns=['index'])
             trans_csv.to_csv(save_path, index=False)
+            logger.info(f"Save in {save_path}")
 
     logger.info('''============================(=^ω^=) YOUR CLASH DID IT!============================''')
 
