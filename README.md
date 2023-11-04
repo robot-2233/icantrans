@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://github.com/Dreamacro/clash/raw/master/docs/logo.png" alt="Clash" width="200">
+  <img src="https://github.com/fossabot/clash/raw/master/docs/logo.png" alt="Clash" width="200">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/180px-Google_Chrome_icon_%28February_2022%29.svg.png" alt="Google Icon" width="70">
   <br>Icantrans
 </h1>
