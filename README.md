@@ -13,9 +13,6 @@
   <a href="https://github.com/robot-2233/icantrans/releases">
     <img src="https://img.shields.io/github/v/release/robot-2233/icantrans?label=Version&style=flat-square" alt="GitHub Release">
   </a>
-  <a href="https://goreportcard.com/report/github.com/robot-2233/icantrans">
-    <img src="https://goreportcard.com/badge/github.com/robot-2233/icantrans?style=flat-square" alt="Go Report Card">
-  </a>
 </p>
 
 
